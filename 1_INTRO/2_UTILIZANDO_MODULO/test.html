@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <button id="btn-ler">Ler arquivo</button>
+    <div id="exibir"></div>
+</body>
+<script>
+
+    let btnLer = document.getElementById('btn-ler');
+
+    function read(){
+        let text =  'apenas um teste';
+        document.getElementById('exibir').innerHTML = text;
+    }
+
+     btnLer.addEventListener('click', function(){
+        read();
+     });
+
+</script>
+</html>

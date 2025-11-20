@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>404 - Página Não Encontrada</title>
+    <!-- Link do Bootstrap -->
+    <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css"
+      rel="stylesheet"
+    />
+    <style>
+      body {
+        background-color: #121212; /* fundo escuro */
+        color: #fff; /* texto claro */
+        font-family: "Arial", sans-serif;
+      }
+      .container {
+        height: 100vh;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+      }
+      .error-box {
+        text-align: center;
+        background-color: #1f1f1f; /* cor de fundo da caixa */
+        padding: 50px 30px;
+        border-radius: 10px;
+        box-shadow: 0 4px 15px rgba(0, 0, 0, 0.3);
+        max-width: 500px;
+        width: 100%;
+      }
+      .error-box h1 {
+        font-size: 100px;
+        color: #ff6347; /* cor laranja-avermelhada */
+        margin-bottom: 20px;
+      }
+      .error-box h2 {
+        font-size: 30px;
+        color: #ddd; /* cor mais suave para o subtítulo */
+      }
+      .error-box p {
+        color: #bbb; /* cor suave para a mensagem */
+        margin-bottom: 20px;
+      }
+      .btn-back {
+        background-color: #ff6347;
+        color: #fff;
+        padding: 10px 20px;
+        text-decoration: none;
+        border-radius: 5px;
+        margin-top: 20px;
+        font-size: 16px;
+        transition: background-color 0.3s ease;
+      }
+      .btn-back:hover {
+        background-color: #e5533e; /* efeito de hover mais escuro */
+      }
+    </style>
+  </head>
+  <body>
+    <div class="container">
+      <div class="error-box">
+        <h1>404</h1>
+        <h2>Página Não Encontrada</h2>
+        <p>
+          Desculpe, mas a página que você está procurando não existe ou foi
+          movida.
+        </p>
+        <a href="/" class="btn-back">Voltar à Página Inicial</a>
+      </div>
+    </div>
+
+    <!-- Link para o Bootstrap JS -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js"></script>
+  </body>
+</html>

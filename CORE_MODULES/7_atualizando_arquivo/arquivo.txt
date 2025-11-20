@@ -1,0 +1,16 @@
+
+    
+      Nome: Sara
+      Comida favorita: Sushi
+      Tipo de culinária: Japonesa
+      Comentário: Bora pro rodiziozão esbagaçar
+      Frequência: algumas_vezes_por_mes
+      --------------------------
+    
+      Nome: Amanda 
+      Comida favorita: Sushi 
+      Tipo de culinária: Japonesa
+      Comentário: Eu gosto do sabor e das texturas do sushi.
+      Frequência: algumas_vezes_por_mes
+      --------------------------
+    
