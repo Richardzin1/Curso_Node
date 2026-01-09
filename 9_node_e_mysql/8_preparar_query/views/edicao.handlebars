@@ -1,0 +1,41 @@
+<form method="post" action="/books/update" class="form">
+<div>
+ 
+  <div class="form-control">
+    <input
+      type="hidden"
+      name="id"
+      placeholder="Digite o título"
+      value="{{bookEdit.id}}"
+    />
+  </div>
+  <div class="form-control">
+    <label for="id">ID:</label>
+     <input
+      type="text"
+      value="{{bookEdit.id}}"
+      disabled
+    />
+  </div>
+  <div class="form-control">
+    <label for="title">Título:</label>
+    <input
+      type="text"
+      name="title"
+      placeholder="Digite o título"
+      value="{{bookEdit.title}}"
+    />
+  </div>
+  <div class="form-control">
+    <label for="pagesqty">Número de quantidades de páginas:</label>
+    <input
+      type="number"
+      name="pagesqty"
+      placeholder="Quantas páginas o livro tem?"
+      value="{{bookEdit.pageqty}}"
+    />
+  </div>
+  <input type="submit" value="Atualizar" />
+</form>
+
+</div>

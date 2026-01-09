@@ -1,0 +1,153 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: Arial, Helvetica, sans-serif;
+}
+
+/* Navbar */
+.navbar {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 15px 40px;
+  background: linear-gradient(90deg, #4f46e5, #6366f1);
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.15);
+}
+
+.logo {
+  color: #fff;
+  font-size: 1.4rem;
+  font-weight: bold;
+}
+
+.nav-links {
+  list-style: none;
+  display: flex;
+  gap: 25px;
+}
+
+.nav-links a {
+  text-decoration: none;
+  color: #fff;
+  font-size: 1rem;
+  padding: 8px 14px;
+  border-radius: 6px;
+  transition: background 0.3s, transform 0.2s;
+}
+
+.nav-links a:hover {
+  background: rgba(255, 255, 255, 0.2);
+  transform: translateY(-2px);
+}
+
+h1 {
+  text-align: center;
+}
+
+.form {
+  width: 450px;
+  margin: 0 auto;
+}
+
+.form-control {
+  display: flex;
+  flex-direction: column;
+  margin-bottom: 0.5em;
+  margin-top: .5em;
+}
+
+.form-control label {
+  font-weight: bold;
+  margin-bottom: 0.3em;
+}
+
+.form-control input {
+  padding: 5px;
+}
+
+.message {
+  text-align: center;
+  padding: 2em;
+  color: green;
+  font-weight: bold;
+  font-size: 1.3em;
+}
+/* ------------------------------------------------------------------------------------------------------------------------ */
+/* css books */
+
+.container-books {
+  width: 450px;
+  margin: 0 auto;
+}
+
+.container-books div {
+  border-bottom: 1px solid #ccc;
+  padding: 5px;
+  margin: 5px;
+}
+
+.btn-ver-livro {
+  display: inline-block;
+  padding: 8px 14px;
+  background-color: #4caf50;
+  color: white;
+  text-decoration: none;
+  border-radius: 6px;
+  font-weight: 600;
+  transition: background-color 0.3s, transform 0.2s;
+}
+
+.btn-ver-livro:hover {
+  background-color: #43a047;
+  transform: scale(1.05);
+}
+
+.bold {
+  font-weight: bold;
+}
+
+/* ------------------------------------------------------------------------------------------------------------------------ */
+/* css book individuais */
+
+.container {
+  max-width: 800px;
+  margin: 0 auto;
+  padding: 20px;
+}
+
+.book-card {
+  background: #fff;
+  padding: 20px;
+  border-radius: 10px;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+}
+
+.book-title {
+  margin-bottom: 10px;
+  color: #2e7d32;
+}
+
+.book-description {
+  color: #555;
+  margin-bottom: 15px;
+}
+
+.book-info {
+  list-style: none;
+  padding: 0;
+  margin-bottom: 15px;
+}
+
+.book-info li {
+  margin-bottom: 5px;
+}
+
+.btn-ver-livro {
+  display: inline-block;
+  padding: 8px 14px;
+  background-color: #2e7d32;
+  color: white;
+  text-decoration: none;
+  border-radius: 6px;
+}

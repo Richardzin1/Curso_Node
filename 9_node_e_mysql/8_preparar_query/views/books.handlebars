@@ -1,0 +1,28 @@
+<h1>Livros</h1>
+<div class="container-books">
+  {{#each book}}
+    <div>#{{this.id}}
+      -
+      <span class="bold">{{this.title}}</span>
+      -
+      <a href="/books/{{this.id}}" class="btn-ver-livro">Ver Livro</a>
+      
+      <form action="/books/delete" method="post">
+        <input type="hidden" name="id" value="{{this.id}}" />
+        <input type="submit" value="Deletar" />
+      </form>
+
+    </div>
+  {{/each}}
+</div>
+
+<div class="message">
+
+  {{#if success}}
+    <p>{{success}}</p>
+  {{/if}}
+  {{#if error}}
+    <p style="color: red;">{{error}}</p>
+  {{/if}}
+
+</div>

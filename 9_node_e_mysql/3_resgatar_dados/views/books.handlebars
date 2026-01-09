@@ -1,0 +1,18 @@
+<h1>Livros</h1>
+<a class="btn-voltar " href="/">Adicionar livros</a>
+<div class="container-books">
+    {{#each book}}
+    <div>#{{this.id}} - <span class="bold">{{this.title}}</span> - {{this.pageqty}} Páginas</div>
+    {{/each}}
+</div>
+
+<div class="message">
+
+  {{#if success}}
+    <p>{{success}}</p>
+  {{/if}}
+  {{#if error}}
+    <p style="color: red;">{{error}}</p>
+  {{/if}}
+
+</div>

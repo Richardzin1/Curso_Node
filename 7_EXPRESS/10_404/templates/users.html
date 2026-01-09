@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <h1 id="user"></h1>
+</body>
+<script>
+    const path = window.location.pathname;
+    console.log(path);
+    // "/users/1"
+
+    const partes = path.split("/");
+    const id = partes[2];
+
+    console.log(id); // 1
+
+    let user = document.getElementById("user")
+    user.innerText = `Bem vindo usuário ${id}`
+</script>
+
+</html>

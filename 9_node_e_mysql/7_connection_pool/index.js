@@ -1,0 +1,139 @@
+const express = require("express");
+const exphbs = require("express-handlebars");
+const pool = require("./.env/conn");
+
+const app = express();
+
+// executar a função handlebars
+app.engine("handlebars", exphbs.engine());
+
+// configurando template engine na aplicação
+app.set("view engine", "handlebars");
+
+//ponte para os arquivos estáticos
+app.use(express.static("public"));
+
+//converter pra json a captura dos campos
+app.use(
+  express.urlencoded({
+    extended: true,
+  })
+);
+
+app.use(express.json());
+
+//-----------------------------------------------------------------------------------------------------------------------
+app.get("/", (req, res) => {
+  res.render("home");
+});
+
+//-----------------------------------------------------------------------------------------------------------------------
+// Rota adicionar livros
+app.post("/books/insertbook", (req, res) => {
+  const { title, pagesqty } = req.body;
+
+  if (!title || !pagesqty) {
+    return res.redirect("/?error=Preencha todos os campos!");
+  }
+
+  // preciso salvar isso banco de dados
+  const sql = `INSERT INTO book (title, pageqty) VALUES (?,?) `;
+
+  pool.query(sql, [title, pagesqty], (err) => {
+    if (err) {
+      console.log(err);
+    }
+    res.redirect("/books?success=Cadastrado com sucesso!");
+  });
+});
+
+//-----------------------------------------------------------------------------------------------------------------------
+// Rota para resgatar dados Banco de dados
+
+app.get("/books", (req, res) => {
+  const { success, error } = req.query;
+  const sql = `SELECT * FROM book`;
+
+  pool.query(sql, (err, data) => {
+    if (err) {
+      console.log(err);
+      return;
+    }
+
+    const book = data;
+    res.render("books", { book, success, error });
+  });
+});
+
+//-----------------------------------------------------------------------------------------------------------------------
+// buscas individuais com id
+app.get("/books/:id", (req, res) => {
+  const id = req.params.id;
+
+  const sql = `SELECT * FROM book WHERE id = ?`;
+  pool.query(sql, [id], (err, data) => {
+    if (err) {
+      console.log(err);
+      return;
+    }
+
+    const book = data[0];
+    res.render("book", { book });
+  });
+});
+//-----------------------------------------------------------------------------------------------------------------------
+// editar registros
+app.get("/books/edit/:id", (req, res) => {
+  const id = req.params.id;
+  const sql = `SELECT * FROM book WHERE id = ?`;
+
+  pool.query(sql, [id], (err, data) => {
+    if (err) {
+      console.log(err);
+      return;
+    }
+
+    const bookEdit = data[0];
+    res.render("edicao", { bookEdit });
+  });
+});
+//------- ----------------------------------------------------------------------------------------------------------------
+// criar a rota update pra salvar os dados editados
+app.post("/books/update", (req, res) => {
+  const { id, title, pagesqty } = req.body;
+
+  if (!id || !title || !pagesqty) {
+    return res.redirect(`/books/edit/${id}?error=Preencha todos os campos`);
+  }
+  const sql = `
+  UPDATE book
+  SET title = ?, pageqty = ?
+  WHERE id = ?
+`;
+
+  pool.query(sql, [title, pagesqty, id], (err) => {
+    if (err) {
+      console.log(err);
+    }
+    res.redirect("/books?success=Atualizado com sucesso");
+  });
+});
+
+//------- ----------------------------------------------------------------------------------------------------------------
+// teste para deletar usuários
+app.post("/books/delete", (req, res) => {
+  const { id } = req.body;
+  const sql = `DELETE FROM book WHERE id = ?`;
+
+  pool.query(sql, [id], (err) => {
+    if (err) {
+      console.log(err);
+    }
+    res.redirect("/books?success=Deletado Com sucesso!");
+  });
+});
+//------- ----------------------------------------------------------------------------------------------------------------
+
+app.listen(3000, () => {
+  console.log("Servidor rodando na porta 3000");
+});

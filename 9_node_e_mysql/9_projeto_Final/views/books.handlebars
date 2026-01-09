@@ -1,0 +1,47 @@
+<h1 class="text-center my-4">List Books</h1>
+
+<div class="container">
+  <table class="table">
+    <thead>
+      <tr>
+        <th scope="col">#ID</th>
+        <th scope="col">Title</th>
+        <th scope="col">Pages</th>
+        <th scope="col">Actions</th>
+      </tr>
+    </thead>
+    <tbody>
+      {{#each rows}}
+        <tr>
+          <th scope="row">{{this.id}}</th>
+          <td>{{this.title}}</td>
+          <td>{{this.pagesqty}}</td>
+          <td>
+            <!-- Edit Button -->
+            <form action="/books/edit" method="post" class="d-inline">
+              <input type="hidden" name="id" value="{{this.id}}" />
+              <input class="btn btn-sm btn-warning me-2" type="submit" value="Edit" />
+            </form>
+            <!-- Delete Button -->
+            <form action="/books/delete" method="post" class="d-inline">
+              <input type="hidden" name="id" value="{{this.id}}" />
+              <input class="btn btn-sm btn-danger" type="submit" value="Deletar" />
+            </form>
+          </td>
+        </tr>
+      {{/each}}
+    </tbody>
+  </table>
+
+  <!-- Alerta de sucesso -->
+  {{#if sucess}}
+    <div class="alert alert-success text-center my-3" role="alert">
+      {{sucess}}
+    </div>
+  {{/if}}
+  {{#if deleted}}
+    <div class="alert alert-danger text-center my-3" role="alert">
+      {{deleted}}
+    </div>
+  {{/if}}
+</div>
